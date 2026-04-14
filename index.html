@@ -155,30 +155,19 @@
         }
 
         /* Mobile Responsive */
-       @media (max-width: 768px) {
+        @media (max-width: 768px) {
             nav {
-                width: 100%;
-                height: auto;
-                position: relative; /* Removes the fixed side positioning */
-                border-right: none;
-                border-bottom: 2px solid var(--orange);
+                display: none; /* Hide sidebar on small screens */
             }
             
-            nav ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                justify-content: center;
-            }
-        
             main {
                 margin-left: 0;
             }
-        
+            
             header h1 {
                 font-size: 1.8rem;
             }
-
+            
             #countdown {
                 gap: 8px;
             }
