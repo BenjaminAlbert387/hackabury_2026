@@ -155,20 +155,46 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 768px) {
+       @media (max-width: 768px) {
             nav {
-                display: none; /* Hide sidebar on small screens */
+                width: 100%;
+                height: auto;
+                position: relative; /* Removes the fixed side positioning */
+                border-right: none;
+                border-bottom: 2px solid var(--orange);
             }
+            
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+        
             main {
                 margin-left: 0;
             }
+        
             header h1 {
                 font-size: 1.8rem;
             }
+
             #countdown {
+                gap: 8px;
+            }
+           
+            .time-box {
+                min-width: 50px;
                 font-size: 1.2rem;
+                padding: 8px;
+            }
+           
+            .label {
+                font-size: 0.6rem;
+            }
             }
         }
+    }
     </style>
 </head>
 <body>
@@ -193,27 +219,35 @@
 
         <section id="about">
             <h2>The Event</h2>
-            <p>Welcome to Hackabury 2026 at the Verena Holmes building. Bring your laptops and your best ideas for 24 hours of intensive creation, coding, and game design.</p>
+            <p>Welcome to Hackabury 2026 at the Verena Holmes building! Bring your laptops and your best ideas for 24 hours of intensive creation, coding, and game design.</p>
         </section>
 
         <section id="timer" class="card">
-            <h2>Event Starts In:</h2>
+            <h2>Event Starts In: (June 1, 2026 at 10am!) </h2>
             <div id="countdown">
                 <div class="time-box" id="days">00</div>
+                <div class="label">Days</div>
+                
                 <div class="time-box" id="hours">00</div>
+                <div class="label">Hours</div>
+                
                 <div class="time-box" id="minutes">00</div>
+                <div class="label">Minutes</div>
+                
                 <div class="time-box" id="seconds">00</div>
+                <div class="label">Seconds</div>
             </div>
         </section>
 
         <section id="register">
             <h2>Join the Hack</h2>
             <p>Ready to build the future? Register your team of up to six people below.</p>
-            <a href="https://ccsu.co.uk/events/84V7G/hackabury-24-hour-hackathon-gamesjam" class="btn" target="_blank">Access Registration Form</a>
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=2rIgA90iq02MIW5kS6FPEzc2nHBd_1VHouLy6L5fLidUMVAwUEwxT0RHUVg0ODMzN01JQU1NR1pDVS4u" class="btn" target="_blank">Access Registration Form</a>
         </section>
 
         <section id="faq">
             <h2>Frequently Asked Questions</h2>
+            <p>If this is your first ever hackathon, look here first!</p>
             <div class="faq-item">
                 <h3>Who can participate?</h3>
                 <p>Anyone! Whether you study Computing, Media, Arts, or Business, all CCCU students are welcome.</p>
@@ -230,15 +264,35 @@
 
         <section id="sponsors">
             <h2>Sponsors</h2>
+            <p>Becuase a hackathon can't run without them!</p>
+            <h3>Platinum Tier Sponsors</h3>
             <div class="grid">
-                <div class="placeholder">Coming Soon</div>
-                <div class="placeholder">Coming Soon</div>
-                <div class="placeholder">Coming Soon</div>
+                <div class="placeholder">FolioXR</div>
+                <div class="placeholder">Southeastern</div>
             </div>
+
+            <h3>Gold Tier Sponsors</h3>
+            <div class="grid">
+                <div class="placeholder">Romax Digital</div>
+            </div>
+
+            <h3>Silver Tier Sponsors</h3>
+            <div class="grid">
+                <div class="placeholder">Wave Community Banking</div>
+                <div class="placeholder">Barclays Eagle Labs</div>
+            </div>
+
+            <h3>Bronze Tier Sponsors</h3>
+            <div class="grid">
+                <div class="placeholder">Wave Community Banking</div>
+                <div class="placeholder">Dovetail Games</div>
+            </div>
+            
         </section>
 
         <section id="judges">
             <h2>Judges</h2>
+            <p>The hardest part...deciding which project is best!</p>
             <div class="grid">
                 <div class="placeholder">TBA</div>
                 <div class="placeholder">TBA</div>
