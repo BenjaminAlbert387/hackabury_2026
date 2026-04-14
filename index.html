@@ -16,7 +16,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -154,57 +154,39 @@
             justify-content: center;
         }
 
-        /* Hamburger Styling */
-        .hamburger {
-            display: none; /* Hidden on desktop */
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-        }
-        
-        .hamburger div {
-            width: 30px;
-            height: 4px;
-            background-color: var(--orange);
-            border-radius: 2px;
-        }
-        /* Mobile Rules */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex; /* Show button on mobile */
-            }
-        
             nav {
-                transform: translateX(-100%); /* Move sidebar off-screen left */
-                transition: transform 0.3s ease-in-out;
-                z-index: 1000;
-                width: 80%; /* Takes up most of the screen when open */
+                display: none; /* Hide sidebar on small screens */
             }
-        
-            /* When this class is added via JS, the menu slides in */
-            nav.active {
-                transform: translateX(0);
-            }
-        
+            
             main {
                 margin-left: 0;
             }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            #countdown {
+                gap: 8px;
+            }
+           
+            .time-box {
+                min-width: 50px;
+                font-size: 1.2rem;
+                padding: 8px;
+            }
+           
+            .label {
+                font-size: 0.6rem;
+            }
+            }
         }
+    }
     </style>
 </head>
-    
 <body>
-    <button class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-    </button>
 
     <nav>
         <h2>HACKABURY</h2>
@@ -262,7 +244,7 @@
         <section id="faq">
             <h2>Frequently Asked Questions</h2>
             <p>If this is your first ever hackathon, look here first!</p>
-            <br>
+            
             <div class="faq-item">
                 <h3>Who can participate?</h3>
                 <p>Anyone! Whatever subject you study, students above 18* are welcome to join!</p>
@@ -290,7 +272,6 @@
         <section id="sponsors">
             <h2>Sponsors</h2>
             <p>Becuase a hackathon can't run without them!</p>
-            <br>
             <h3>Platinum Tier Sponsors</h3>
             <div class="grid">
                 <div class="placeholder">FolioXR</div>
@@ -319,10 +300,9 @@
         <section id="judges">
             <h2>Judges</h2>
             <p>The hardest part...deciding which project is best!</p>
-            <br>
             <div class="grid">
-                <div class="placeholder">Eve from Meta</div>
-                <div class="placeholder">Rich from Google</div>
+                <div class="placeholder">TBA</div>
+                <div class="placeholder">TBA</div>
             </div>
         </section>
     </main>
@@ -350,21 +330,6 @@
                 document.getElementById("timer").innerHTML = "HACKING IN PROGRESS!";
             }
         }, 1000);
-
-        const hamburger = document.getElementById('hamburger');
-        const sidebar = document.getElementById('sidebar');
-        
-        // Toggle menu open/closed
-        hamburger.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-        
-        // Close menu when a link is clicked (useful for single-page sites)
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                sidebar.classList.remove('active');
-            });
-        });
     </script>
 </body>
 </html>
