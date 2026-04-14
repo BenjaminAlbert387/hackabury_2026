@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackabury 2026 | Hackathon + GamesJam</title>
+    <style>
+        :root {
+            --orange: #FF8C00;
+            --purple: #4B0082;
+            --white: #FFFFFF;
+            --dark-purple: #310055;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--purple);
+            color: var(--white);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* Sidebar */
+        nav {
+            width: 250px;
+            background-color: var(--dark-purple);
+            height: 100vh;
+            position: fixed;
+            padding: 20px;
+            border-right: 2px solid var(--orange);
+        }
+
+        nav h2 {
+            color: var(--orange);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-bottom: 15px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--orange);
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 250px;
+            width: 100%;
+        }
+
+        header {
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--dark-purple);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Timer */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .time-box {
+            background: var(--orange);
+            padding: 10px 20px;
+            border-radius: 5px;
+            min-width: 80px;
+        }
+
+        /* Form Button */
+        .btn {
+            display: inline-block;
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .faq-item h3 {
+            color: var(--orange);
+            margin-bottom: 5px;
+        }
+
+        /* Grid for Sponsors/Judges */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .placeholder {
+            height: 150px;
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Hide sidebar on small screens */
+            }
+            main {
+                margin-left: 0;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            #countdown {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>HACKABURY</h2>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#timer">Countdown</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+            <li><a href="#judges">Judges</a></li>
+            <li><a href="#register">Register</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Hackabury 2026</h1>
+            <p>24-Hour Hackathon + GamesJam | Canterbury Christ Church University</p>
+        </header>
+
+        <section id="about">
+            <h2>The Event</h2>
+            <p>Welcome to Hackabury 2026 at the Verena Holmes building. Bring your laptops and your best ideas for 24 hours of intensive creation, coding, and game design.</p>
+        </section>
+
+        <section id="timer" class="card">
+            <h2>Event Starts In:</h2>
+            <div id="countdown">
+                <div class="time-box" id="days">00</div>
+                <div class="time-box" id="hours">00</div>
+                <div class="time-box" id="minutes">00</div>
+                <div class="time-box" id="seconds">00</div>
+            </div>
+        </section>
+
+        <section id="register">
+            <h2>Join the Hack</h2>
+            <p>Ready to build the future? Register your team of up to six people below.</p>
+            <a href="https://ccsu.co.uk/events/84V7G/hackabury-24-hour-hackathon-gamesjam" class="btn" target="_blank">Access Registration Form</a>
+        </section>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>Who can participate?</h3>
+                <p>Anyone! Whether you study Computing, Media, Arts, or Business, all CCCU students are welcome.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What should I bring?</h3>
+                <p>A laptop, chargers, a phone, and anything to keep you comfortable (pillows/blankets) for the overnight stay.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is there food?</h3>
+                <p>Yes. Free lunch and dinner are provided to keep your brain fueled.</p>
+            </div>
+        </section>
+
+        <section id="sponsors">
+            <h2>Sponsors</h2>
+            <div class="grid">
+                <div class="placeholder">Coming Soon</div>
+                <div class="placeholder">Coming Soon</div>
+                <div class="placeholder">Coming Soon</div>
+            </div>
+        </section>
+
+        <section id="judges">
+            <h2>Judges</h2>
+            <div class="grid">
+                <div class="placeholder">TBA</div>
+                <div class="placeholder">TBA</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple Countdown Logic for June 1st, 2026
+        const targetDate = new Date("June 1, 2026 10:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("timer").innerHTML = "HACKING IN PROGRESS!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
