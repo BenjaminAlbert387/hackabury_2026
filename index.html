@@ -143,6 +143,32 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .grid-item h3 {
+            color: var(--white);
+        }
+
+        .grid-item img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .tier-heading {
+            margin: 30px 0 15px;
         }
 
         .placeholder {
@@ -154,40 +180,107 @@
             justify-content: center;
         }
 
+        /* Mobile hamburger button — hidden on desktop */
+        #mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+            background-color: var(--dark-purple);
+            border: 2px solid var(--orange);
+            color: var(--white);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* Mobile dropdown nav */
+        #mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background-color: var(--dark-purple);
+            border-bottom: 2px solid var(--orange);
+            padding: 70px 20px 20px;
+        }
+
+        #mobile-nav ul {
+            list-style: none;
+        }
+
+        #mobile-nav ul li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        #mobile-nav ul li a {
+            display: block;
+            padding: 12px 0;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        #mobile-nav ul li a:hover {
+            color: var(--orange);
+        }
+
+        #mobile-nav.open {
+            display: block;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             nav {
                 display: none;
             }
-            
+
             main {
                 margin-left: 0;
             }
-            
+
+            header {
+                padding-top: 70px;
+            }
+
             header h1 {
                 font-size: 1.8rem;
             }
-            
+
+            #mobile-menu-btn {
+                display: block;
+            }
+
             #countdown {
                 gap: 8px;
             }
-           
+
             .time-box {
                 min-width: 50px;
                 font-size: 1.2rem;
                 padding: 8px;
             }
-           
+
             .label {
                 font-size: 0.6rem;
             }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             }
         }
-    }
     </style>
 </head>
 <body>
 
+    <!-- Desktop Sidebar -->
     <nav>
         <h2>HACKABURY</h2>
         <ul>
@@ -199,6 +292,21 @@
             <li><a href="#register">Register</a></li>
         </ul>
     </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+
+    <!-- Mobile Dropdown Nav -->
+    <div id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#timer" class="mobile-nav-link">Countdown</a></li>
+            <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+            <li><a href="#sponsors" class="mobile-nav-link">Sponsors</a></li>
+            <li><a href="#judges" class="mobile-nav-link">Judges</a></li>
+            <li><a href="#register" class="mobile-nav-link">Register</a></li>
+        </ul>
+    </div>
 
     <main>
         <header>
@@ -277,54 +385,69 @@
             <h2>Sponsors</h2>
             <p>Becuase a hackathon can't run without them!</p>
             
-            <h1>Platinum Tier Sponsors</h1>
+            <h1 class="tier-heading">Platinum Tier Sponsors</h1>
 
             <div class="grid">
-                <h3>FolioXR</h3>
-                <a href="https://folioxr.com/">
-                    <img src="FXR.jpg" width="300" height="200"> 
-                </a>
+                <div class="grid-item">
+                    <h3>FolioXR</h3>
+                    <a href="https://folioxr.com/">
+                        <img src="FXR.jpg" alt="FolioXR">
+                    </a>
+                </div>
 
-                <h3>Southeastern</h3>
-                <a href="https://www.southeasternrailway.co.uk/">
-                    <img src="SE.png" width="300" height="200">
-                </a>
+                <div class="grid-item">
+                    <h3>Southeastern</h3>
+                    <a href="https://www.southeasternrailway.co.uk/">
+                        <img src="SE.png" alt="Southeastern">
+                    </a>
+                </div>
             </div>
 
-            <h1>Gold Tier Sponsors</h1>
+            <h1 class="tier-heading">Gold Tier Sponsors</h1>
 
-            <h3>Romax Digital</h3>
-            <a href="https://romax.co.uk/digital/">
-                <img src="RD.png" width="300" height="200">
-            </a>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>Romax Digital</h3>
+                    <a href="https://romax.co.uk/digital/">
+                        <img src="RD.png" alt="Romax Digital">
+                    </a>
+                </div>
+            </div>
 
-            <h1>Silver Tier Sponsors</h1>
+            <h1 class="tier-heading">Silver Tier Sponsors</h1>
                 
             <div class="grid">
-                <h3>Holiday Extras</h3>
-                <a href="https://www.holidayextras.com/">
-                    <img src="HX.png" width="300" height="200">
-                </a>
+                <div class="grid-item">
+                    <h3>Holiday Extras</h3>
+                    <a href="https://www.holidayextras.com/">
+                        <img src="HX.png" alt="Holiday Extras">
+                    </a>
+                </div>
 
-                <h3>Barclays Eagle Labs</h3>
-                <a href="https://labs.uk.barclays/about">
-                    <img src="BEL.png" width="300" height="200">
-                </a>
+                <div class="grid-item">
+                    <h3>Barclays Eagle Labs</h3>
+                    <a href="https://labs.uk.barclays/about">
+                        <img src="BEL.png" alt="Barclays Eagle Labs">
+                    </a>
+                </div>
             </div>
 
-            <h1>Bronze Tier Sponsors</h1>
+            <h1 class="tier-heading">Bronze Tier Sponsors</h1>
             
             <div class="grid">
-                
-                <h3>Dovetail Games</h3>
-                <a href="https://dovetailgames.com/">
-                    <img src="DT.png" width="300" height="200">
-                </a>
+                <div class="grid-item">
+                    <h3>Dovetail Games</h3>
+                    <a href="https://dovetailgames.com/">
+                        <img src="DT.png" alt="Dovetail Games">
+                    </a>
+                </div>
 
-                <h3>Wave Community Bank</h3>
-                <a href="https://wavecb.org.uk/">
-                    <img src="WCB.png" width="300" height="200">
-                </a>
+                <div class="grid-item">
+                    <h3>Wave Community Bank</h3>
+                    <a href="https://wavecb.org.uk/">
+                        <img src="WCB.png" alt="Wave Community Bank">
+                    </a>
+                </div>
             </div>
             
         </section>
@@ -335,57 +458,75 @@
             <p>Clicking on an image will take you straight to their LinkedIn!</p>
             <div class="grid">
 
-                <h3>Adipat</h3>
-                <a href="https://www.linkedin.com/in/adipatvirdi/">
-                    <img src="Adipat.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Adipat</h3>
+                    <a href="https://www.linkedin.com/in/adipatvirdi/">
+                        <img src="Adipat.jpg" alt="Adipat">
+                    </a>
+                </div>
 
-                <h3>Alison</h3>
-                <a href="https://www.linkedin.com/in/alisonhoward90/">
-                    <img src="Alison.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Alison</h3>
+                    <a href="https://www.linkedin.com/in/alisonhoward90/">
+                        <img src="Alison.jpg" alt="Alison">
+                    </a>
+                </div>
 
-                <h3>Andrew</h3>
-                <a href="https://www.linkedin.com/in/andygibbons/">
-                    <img src="Andrew.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Andrew</h3>
+                    <a href="https://www.linkedin.com/in/andygibbons/">
+                        <img src="Andrew.jpg" alt="Andrew">
+                    </a>
+                </div>
 
-                <h3>Emily</h3>
-                <a href="https://www.linkedin.com/in/emily-perridge-050960172/">
-                    <img src="Emily.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Emily</h3>
+                    <a href="https://www.linkedin.com/in/emily-perridge-050960172/">
+                        <img src="Emily.jpg" alt="Emily">
+                    </a>
+                </div>
 
-                <h3>Ember</h3>
-                <a href="https://www.linkedin.com/in/embermartin/">
-                    <img src="Emmy.png" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Ember</h3>
+                    <a href="https://www.linkedin.com/in/embermartin/">
+                        <img src="Emmy.png" alt="Ember">
+                    </a>
+                </div>
 
-                <h3>Eve</h3>
-                <a href="https://www.linkedin.com/in/eve-routledge">
-                    <img src="Eve.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Eve</h3>
+                    <a href="https://www.linkedin.com/in/eve-routledge">
+                        <img src="Eve.jpg" alt="Eve">
+                    </a>
+                </div>
 
-                <h3>Jamie</h3>
-                <a href="linkedin.com/in/jamie-pinnington">
-                    <img src="Jamie.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Jamie</h3>
+                    <a href="linkedin.com/in/jamie-pinnington">
+                        <img src="Jamie.jpg" alt="Jamie">
+                    </a>
+                </div>
 
-                <h3>Priti</h3>
-                <a href="https://www.linkedin.com/in/priti-dorn/">
-                    <img src="Priti.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Priti</h3>
+                    <a href="https://www.linkedin.com/in/priti-dorn/">
+                        <img src="Priti.jpg" alt="Priti">
+                    </a>
+                </div>
 
-                <h3>Richard</h3>
-                <a href="https://www.linkedin.com/in/richardpollin/">
-                    <img src="Rich.jpg" width="300" height="300">
-                </a>
+                <div class="grid-item">
+                    <h3>Richard</h3>
+                    <a href="https://www.linkedin.com/in/richardpollin/">
+                        <img src="Rich.jpg" alt="Richard">
+                    </a>
+                </div>
                 
             </div>
         </section>
     </main>
 
     <script>
-        // Simple Countdown Logic for June 1st, 2026
+        // Countdown
         const targetDate = new Date("June 1, 2026 10:00:00").getTime();
 
         const timer = setInterval(function() {
@@ -407,6 +548,25 @@
                 document.getElementById("timer").innerHTML = "HACKING IN PROGRESS!";
             }
         }, 1000);
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById("mobile-menu-btn");
+        const mobileNav = document.getElementById("mobile-nav");
+
+        menuBtn.addEventListener("click", function() {
+            const isOpen = mobileNav.classList.toggle("open");
+            menuBtn.setAttribute("aria-expanded", isOpen);
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll(".mobile-nav-link").forEach(function(link) {
+            link.addEventListener("click", function() {
+                mobileNav.classList.remove("open");
+                menuBtn.setAttribute("aria-expanded", false);
+                menuBtn.textContent = "☰";
+            });
+        });
     </script>
 </body>
 </html>
